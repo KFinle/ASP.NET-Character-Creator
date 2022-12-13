@@ -20,3 +20,13 @@ skills to a character object based on its job and level.
 I would like to continue working on this project. I will likely create a private development repository as I workshop features. 
 Not only is it useful for growing as a developer, but it also has the potential to be a tool I will actually use again in the future. 
 I believe that by the time I’m done, I will have a genuinely interesting portfolio piece that I can talk about excitedly in the future.
+
+
+
+<hr/>
+
+<em>
+Original bootstrap theme Made by Thomas Park.
+Code released under the MIT License.
+Based on Bootstrap. Icons from Bootstrap Icons. Web fonts from Google.
+ </em>
