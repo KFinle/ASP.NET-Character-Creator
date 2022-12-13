@@ -1,0 +1,90 @@
+﻿@model Lab5.Models.Character
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Character</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+
+            <!--CHARACTER ID-->
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="characterID" />
+
+            <!--CHARACTER NAME-->
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+
+            <!--CHARACTER JOB-->
+            <div class="form-group">
+                <label asp-for="jobName" class="control-label">Character Job</label>
+                <select asp-for="jobName" class="form-control">
+
+                    <!--POPULATE DROP DOWN MENU WITH JOB LIST-->
+                    @foreach (var job in (List<Job>)ViewData["JobList"])
+                    {
+                        <option value=@job.JobName>@job.JobName | @job.Role</option>
+                    }
+
+                </select>
+                <span asp-validation-for="jobName" class="text-danger"></span>
+            </div>
+
+            <!--MAX HP-->
+            <div class="form-group">
+                <label asp-for="maxHP" class="control-label"></label>
+                <input asp-for="maxHP" class="form-control" readonly="readonly" />
+                <span asp-validation-for="maxHP" class="text-danger"></span>
+            </div>
+
+            <!-- CURRENT HP-->
+            <div class="form-group">
+                <label asp-for="currentHP" class="control-label"></label>
+                <input asp-for="currentHP" class="form-control" readonly="readonly" />
+                <span asp-validation-for="currentHP" class="text-danger"></span>
+            </div>
+
+            <!--MAX AP-->
+            <div class="form-group">
+                <label asp-for="maxAP" class="control-label"></label>
+                <input asp-for="maxAP" class="form-control" readonly="readonly" />
+                <span asp-validation-for="maxAP" class="text-danger"></span>
+            </div>
+
+            <!--CURRENT AP-->
+            <div class="form-group">
+                <label asp-for="currentAP" class="control-label"></label>
+                <input asp-for="currentAP" class="form-control" readonly="readonly" />
+                <span asp-validation-for="currentAP" class="text-danger"></span>
+            </div>
+
+            <!--CURRENT LEVEL-->
+            <div class="form-group">
+                <label asp-for="currentExp" class="control-label"></label>
+                <input asp-for="currentExp" class="form-control" value="@Model.currentExp"/>
+                <span asp-validation-for="currentLevel" class="text-danger"></span>
+            </div>
+
+            <!--SUBMIT-->
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

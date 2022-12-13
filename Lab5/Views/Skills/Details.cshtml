@@ -1,0 +1,81 @@
+﻿@model Lab5.Models.Skill
+
+@{
+    ViewData["Title"] = "Details";
+    var jobs = ViewData["JobList"];
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Skill</h4>
+    <hr />
+    <dl class="row">
+        <!--DISPLAY SKILL DETAILS-->
+        <dt class = "col-sm-10">
+            Skill Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.skillName)
+        </dd>
+        <dt class = "col-sm-10">
+            Skill Description
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.skillDesc)
+        </dd>
+        <dt class="col-sm-10">
+            Job
+        </dt>
+
+        <!--FIND THE JOB ID IN VIEWDATA MATCHING THE CURRENT SKILL'S JOBID-->
+            @foreach (var job in (List<Job>)ViewData["JobList"])
+            {
+                if (job.JobId == Model.jobId)
+                {
+                    <dd class="col-sm-10">@job.JobName | @job.Role </dd>
+                }
+            }
+
+        <dt class = "col-sm-10">
+            Skill Type
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.skillType)
+        </dd>
+        <dt class = "col-sm-10">
+            Action Points Cost
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.apCost)
+        </dd>
+        <dt class = "col-sm-10">
+            Base Power
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.abilityDmg)
+        </dd>
+        <dt class = "col-sm-10">
+            Skill Element
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dmgType)
+        </dd>
+        <dt class = "col-sm-10">
+            Critical Hit DMG Multiplier
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.critMultiplier)
+        </dd>
+        <dt class = "col-sm-10">
+            Level Learned
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.levelLearned)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.SkillId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

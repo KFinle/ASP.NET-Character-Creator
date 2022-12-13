@@ -1,0 +1,109 @@
+﻿@model Lab5.Models.Skill
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Skill</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!--SKILL NAME-->
+            <div class="form-group">
+                <label asp-for="skillName" class="control-label">Skill Name</label>
+                <input asp-for="skillName" class="form-control" />
+                <span asp-validation-for="skillName" class="text-danger"></span>
+            </div>
+
+            <!--SKILL DESCRIPTION-->
+            <div class="form-group">
+                <label asp-for="skillDesc" class="control-label">Skill Description</label>
+                <input asp-for="skillDesc" class="form-control" />
+                <span asp-validation-for="skillDesc" class="text-danger"></span>
+            </div>
+
+            <!--SKILL JOB-->
+            <label asp-for="jobId" class="control-label">Skill Job</label>
+            <select asp-for="jobId" class="form-control">
+                <!--POPULATE DROPDOWN MENU WITH JOBS-->
+                @foreach (var job in (List<Job>)ViewData["JobList"])
+                {
+                    <option value=@job.JobId>@job.JobName | @job.Role</option>
+                }
+            </select>
+
+            <!--SKILL TYPE-->
+            <div class="form-group">
+                <label asp-for="skillType" class="control-label">Skill Type</label>
+                <select asp-for="skillType" class="form-control">
+                    <option value="0">Offensive</option>
+                    <option value="1">Defensive</option>
+                    <option value="2">Status</option>
+                    <option value="3">Restorative</option>
+                    <option value="4">Misc</option>
+                </select>
+                <span asp-validation-for="skillType" class="text-danger"></span>
+            </div>
+
+            <!--SKILL AP COST-->
+            <div class="form-group">
+                <label asp-for="apCost" class="control-label">AP Cost</label>
+                <input asp-for="apCost" class="form-control" />
+                <span asp-validation-for="apCost" class="text-danger"></span>
+            </div>
+
+            <!--ABILITY POWER-->
+            <div class="form-group">
+                <label asp-for="abilityDmg" class="control-label">Ability Power</label>
+                <input asp-for="abilityDmg" class="form-control" />
+                <span asp-validation-for="abilityDmg" class="text-danger"></span>
+            </div>
+
+            <!--SKILL ELEMENT-->
+            <div class="form-group">
+                <label asp-for="dmgType" class="control-label">Skill Element</label>
+                <select asp-for="dmgType" class="form-control">
+                    <option value="0">Physical</option>
+                    <option value="1">Fire</option>
+                    <option value="2">Ice</option>
+                    <option value="3">Electric</option>
+                    <option value="4">Holy</option>
+                    <option value="5">Dark</option>
+                </select>
+                <span asp-validation-for="dmgType" class="text-danger"></span>
+            </div>
+
+            <!--CRIT MULTIPLIER-->
+            <div class="form-group">
+                <label asp-for="critMultiplier" class="control-label">Crit Multiplier</label>
+                <input asp-for="critMultiplier" class="form-control" />
+                <span asp-validation-for="critMultiplier" class="text-danger"></span>
+            </div>
+
+            <!--LEVEL LEARNED-->
+            <div class="form-group">
+                <label asp-for="levelLearned" class="control-label">Level Learned</label>
+                <input asp-for="levelLearned" class="form-control" />
+                <span asp-validation-for="levelLearned" class="text-danger"></span>
+            </div>
+
+            <!--SUBMIT-->
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

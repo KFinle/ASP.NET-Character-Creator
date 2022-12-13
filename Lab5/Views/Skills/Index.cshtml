@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Lab5.Models.Skill>
+
+@{
+    ViewData["Title"] = "Index";
+    var jobs = ViewData["JobList"];
+}
+
+<h1>Index</h1>
+<p>NOTE: As of right now, the skills are not currently able to automatically bind to the characters created.<br/>
+    I will be adding this functionally later, but I ran out of time for the sake of this assignment.<br/>
+    Characters will automatically access skills based on their current job and level.</p>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <!--HEADERS-->
+    <thead>
+        <tr>
+            <th>
+                Skill Name
+            </th>
+            <th>
+                Skill Desc
+            </th>
+            <th>
+                Skill Type
+            </th>
+            <th>
+                Job Id
+            </th>
+            <th>
+                AP Cost
+            </th>
+            <th>
+                Base Power
+            </th>
+            <th>
+                Damage Element
+            </th>
+            <th>
+                Crit Multiplier
+            </th>
+            <th>
+                Level Learned
+            </th>
+            <th>Views</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <!--DISPLAY EACH SKILL-->
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.skillName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.skillDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.skillType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.jobId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.abilityDmg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dmgType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.critMultiplier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.levelLearned)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SkillId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SkillId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SkillId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

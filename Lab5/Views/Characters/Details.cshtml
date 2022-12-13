@@ -1,0 +1,81 @@
+﻿@model Lab5.Models.Character
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Character</h4>
+    <hr />
+    <dl class="row">
+
+        <!--DISPLAY CHARACTER INFO-->
+        <dt class = "col-sm-10" >
+            @Html.LabelFor(model => model.name, "Name")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.LabelFor(model => model.jobName, "Job")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.jobName)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.LabelFor(model => model.role, "Role")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.role)
+        </dd>
+        <dt class = "col-sm-10">
+            @Html.LabelFor(model => model.maxHP, "Max Hit Points")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.maxHP)
+        </dd>
+        <dt class = "col-sm-10">
+            @Html.LabelFor(model => model.currentHP, "Current Hit Points")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.currentHP)
+        </dd>
+        <dt class = "col-sm-10">
+            @Html.LabelFor(model => model.maxAP, "Max Action Points")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.maxAP)
+        </dd>
+        <dt class = "col-sm-10">
+            @Html.LabelFor(model => model.currentAP, "Current Action Points")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.currentAP)
+        </dd>
+        <dt class = "col-sm-10">
+            @Html.LabelFor(model => model.currentLevel, "Current Level")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.currentLevel)
+        </dd>
+        <dt class = "col-sm-10">
+            @Html.LabelFor(model => model.currentExp, "Current Experience Points")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.currentExp)
+        </dd>
+        <dt class = "col-sm-10">
+            @Html.LabelFor(model => model.expToNextLevel, "Experience Points Needed for Next Level")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.expToNextLevel)
+        </dd>
+    </dl>
+    <dl class="flex-column"></dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.characterID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,52 @@
+﻿@model Lab5.Models.Job
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Job</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!--JOB ID-->
+            <input type="hidden" asp-for="JobId" />
+
+            <!--JOB NAME-->
+            <div class="form-group">
+                <label asp-for="JobName" class="control-label">Job Name</label>
+                <input asp-for="JobName" class="form-control" />
+                <span asp-validation-for="JobName" class="text-danger"></span>
+            </div>
+
+            <!--JOB ROLE-->
+            <div class="form-group">
+                <label asp-for="Role" class="control-label">Job Role</label>
+                <select asp-for="Role" class="form-control">
+                    <option value="0">Tank</option>
+                    <option value="1">Healer</option>
+                    <option value="2">MeleeDPS</option>
+                    <option value="3">MagicDPS</option>
+                </select>
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+
+            <!--SUBMIT-->
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

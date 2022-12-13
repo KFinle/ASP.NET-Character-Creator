@@ -1,0 +1,57 @@
+﻿@model Lab5.Models.Character
+@{
+    ViewData["Title"] = "Create";
+}
+<h1>Create</h1>
+<h4>Character</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!--CHARACTER NAME-->
+            <div class="form-group">
+                <label asp-for="name" class="control-label">Character Name</label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+
+            <!--CHARACTER JOB-->
+            <div class="form-group">
+                <label asp-for="jobName" class="control-label">Character Job</label>
+                <select asp-for="jobName" class="form-control">
+
+                    <!--POPULATE DROP DOWN MENU WITH JOB LIST-->
+                   @foreach (var job in (List<Job>)ViewData["JobList"])
+                   {
+                       <option value=@job.JobName>@job.JobName | @job.Role</option>
+                   }
+
+                </select>
+                <span asp-validation-for="jobName" class="text-danger"></span>
+            </div>
+
+            <!--STARTING LEVEL-->
+            <div class="form-group">
+                <label asp-for="currentLevel" class="control-label">Starting Level</label>
+                <input asp-for="currentLevel" class="form-control" />
+                <span asp-validation-for="currentLevel" class="text-danger"></span>
+            </div>
+
+            <!--SUBMIT-->
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,119 @@
+﻿@model Lab5.Models.Skill
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Skill</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <!--SKILL ID-->
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SkillId" />
+
+            <!--SKILL NAME-->
+            <div class="form-group">
+                <label asp-for="skillName" class="control-label">Skill Name</label>
+                <input asp-for="skillName" class="form-control" />
+                <span asp-validation-for="skillName" class="text-danger"></span>
+            </div>
+
+            <!--SKILL DESCRIPTION-->
+            <div class="form-group">
+                <label asp-for="skillDesc" class="control-label">Skill Description</label>
+                <input asp-for="skillDesc" class="form-control" />
+                <span asp-validation-for="skillDesc" class="text-danger"></span>
+            </div>
+
+            <!--SKILL JOB-->
+            <div class="form-group">
+                <label asp-for="jobId" class="control-label">Job for Skill</label>
+                <select asp-for="jobId" class="form-control">
+
+                    <!--FIND THE JOBID IN VIEWDATA MATCHING THE CURRENT SKILL'S JOBID-->
+                    @foreach (var job in (List<Job>)ViewData["JobList"])
+                    {
+                        <option value=@job.JobId>@job.JobName | @job.Role</option>
+                    }
+                </select>
+                <span asp-validation-for="apCost" class="text-danger"></span>
+            </div>
+
+            <!--SKILL TYPE-->
+            <div class="form-group">
+                <label asp-for="skillType" class="control-label">Skill Type</label>
+                <select asp-for="skillType" class="form-control">
+
+                    <!--POPULATE DROPDOWN MENU WITH SKILLTYPE ENUM VALUES-->
+                    @foreach (var skillType in  Enum.GetValues(typeof(Skill.SkillTypes)).Cast<Skill.SkillTypes>().ToList())
+                        {
+                            <option value=@skillType >@skillType.ToString()</option>
+                        }
+
+                </select>
+                <span asp-validation-for="skillType" class="text-danger"></span>
+            </div>
+
+            <!--AP COST-->
+            <div class="form-group">
+                <label asp-for="apCost" class="control-label">AP Cost</label>
+                <input asp-for="apCost" class="form-control" />
+                <span asp-validation-for="apCost" class="text-danger"></span>
+            </div>
+
+            <!--BASE POWER-->
+            <div class="form-group">
+                <label asp-for="abilityDmg" class="control-label">Base Power</label>
+                <input asp-for="abilityDmg" class="form-control" />
+                <span asp-validation-for="abilityDmg" class="text-danger"></span>
+            </div>
+
+            <!--SKILL ELEMENT-->
+            <div class="form-group">
+                <label asp-for="dmgType" class="control-label">Skill Element</label>
+                <select asp-for="dmgType" class="form-control">
+
+                    <!--POPULATE DROPDOWN MENU WITH DMGTYPE ENUM VALUES-->
+                    @foreach (var dmgType in Enum.GetValues(typeof(Skill.DmgTypes)).Cast<Skill.DmgTypes>().ToList())
+                    {
+                        <option value=@dmgType>@dmgType.ToString()</option>
+                    }
+
+                </select>
+                <span asp-validation-for="dmgType" class="text-danger"></span>
+            </div>
+
+            <!--CRIT MULTIPLIER-->
+            <div class="form-group">
+                <label asp-for="critMultiplier" class="control-label">Crit Multiplier</label>
+                <input asp-for="critMultiplier" class="form-control" />
+                <span asp-validation-for="critMultiplier" class="text-danger"></span>
+            </div>
+
+            <!--LEVEL LEARNED-->
+            <div class="form-group">
+                <label asp-for="levelLearned" class="control-label">Level Learned</label>
+                <input asp-for="levelLearned" class="form-control" />
+                <span asp-validation-for="levelLearned" class="text-danger"></span>
+            </div>
+
+            <!--SUBMIT-->
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

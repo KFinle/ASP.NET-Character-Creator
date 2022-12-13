@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Lab5.Models.Character>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Character List</h1>
+<p>This is where all your characters will be displayed! Right now, the display is very limited.
+    However, there's some cool backend calculations going on when you play around with the levels and jobs of characters.
+    In future iterations, I will be adding base combat stats (Attack, Speed, ElementalRes, etc.) but for now, you can see
+    the automatic growth calculations take place on the HP and AP stats!
+</p>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <!--TABLE HEADERS-->
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Job
+            </th>
+            <th>
+                Role
+            </th>
+            <th>
+                Max HP
+            </th>
+            <th>
+                Current HP
+            </th>
+            <th>
+                Max AP
+            </th>
+            <th>
+                Current AP
+            </th>
+            <th>
+                Level
+            </th>
+            <th>
+                Current EXP
+            </th>
+            <th>
+                EXP for Next Level
+            </th>
+            <th>Views</th>
+        </tr>
+    </thead>
+    <tbody>
+
+<!--DISPLAY EACH CHARACTER-->
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.jobName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.maxHP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.currentHP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.maxAP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.currentAP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.currentLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.currentExp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.expToNextLevel)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.characterID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.characterID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.characterID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
