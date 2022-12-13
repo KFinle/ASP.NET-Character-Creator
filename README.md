@@ -26,7 +26,10 @@ I believe that by the time I’m done, I will have a genuinely interesting portf
 <hr/>
 
 <em>
-Original bootstrap theme Made by Thomas Park.
+Original css theme Made by Thomas Park.
+ 
+Modified by Khris Finley.
+ 
 Code released under the MIT License.
 Based on Bootstrap. Icons from Bootstrap Icons. Web fonts from Google.
  </em>
