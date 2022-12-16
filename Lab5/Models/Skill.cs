@@ -16,13 +16,27 @@ namespace Lab5.Models
 
         [Key]
         public int SkillId { get; set; }
+
+        [Required]
         public string skillName { get; set; }
+
+        [Required]
         public string skillDesc { get; set; }
         public SkillTypes skillType { get; set; }
+
+        [Required]
         public int apCost { get; set; }
+
+        [Required]
         public float abilityDmg { get; set; }
+
+        [Required]
         public DmgTypes dmgType { get; set; }
+
+        [Required]
         public float critMultiplier { get; set; }
+
+        [Required]
         public int levelLearned { get; set; }
 
 

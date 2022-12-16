@@ -6,6 +6,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Lab5.Models
@@ -40,15 +41,17 @@ namespace Lab5.Models
         #region Data fields
 
         public int characterID { get; set; }
+
+        [Required]
         public string name { get; set; }
         public Roles role { get; set; }
-
-        //[ForeignKey("JobName")]
-        public string jobName { get; set; }
+        public string jobName { get; set; }     // Extracted from Job Selection
         public int maxHP { get; set; }          // Hit Points
         public int currentHP { get; set; }      // Hit Points
         public int maxAP { get; set; }          // Action Points
         public int currentAP { get; set; }      // Action Points
+
+        [Required]
         public int currentLevel { get; set; }   // Level
         public int currentExp { get; set; }     // Experience Points
         public int expToNextLevel { get; set; } // Experience Points needed for next level up
