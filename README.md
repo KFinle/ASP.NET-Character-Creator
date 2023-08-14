@@ -2,7 +2,7 @@
 Created for Net Development II - Lab 5 
 <hr/>
 
-For Lab 5 I decided to make a CRUD web app where a user can create sample characters, skills, and jobs for an RPG game. 
+For NetDev II Lab 5 I decided to make a CRUD web app where a user can create sample characters, skills, and jobs for an RPG game. 
 I chose to do this because it was directly in line with a separate personal project I am working on, so I already had RPGs on the brain. 
 In that project however, it’s a turn-based combat simulation for command line written in C++ where the characters and enemies are currently static entities.
 They have all the stats you’d expect, but I have not built in any level up system, meaning I have no way to gain experience or calculate stat increases or 
