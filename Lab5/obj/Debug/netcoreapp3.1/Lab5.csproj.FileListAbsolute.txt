@@ -105,3 +105,9 @@ C:\GH KFinle\ASP.NET-Character-Creator\Lab5\obj\Debug\netcoreapp3.1\Lab5.csproj.
 C:\GH KFinle\ASP.NET-Character-Creator\Lab5\obj\Debug\netcoreapp3.1\Lab5.dll
 C:\GH KFinle\ASP.NET-Character-Creator\Lab5\obj\Debug\netcoreapp3.1\Lab5.pdb
 C:\GH KFinle\ASP.NET-Character-Creator\Lab5\obj\Debug\netcoreapp3.1\Lab5.genruntimeconfig.cache
+C:\GH KFinle\ASP.NET-Character-Creator\Lab5\obj\Debug\netcoreapp3.1\Lab5.sourcelink.json
+C:\GH KFinle\ASP.NET-Character-Creator\Lab5\obj\Debug\netcoreapp3.1\staticwebassets\Lab5.StaticWebAssets.Pack.cache
+C:\GH KFinle\ASP.NET-Character-Creator\Lab5\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.Lab5.Microsoft.AspNetCore.StaticWebAssets.props
+C:\GH KFinle\ASP.NET-Character-Creator\Lab5\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.build.Lab5.props
+C:\GH KFinle\ASP.NET-Character-Creator\Lab5\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildMultiTargeting.Lab5.props
+C:\GH KFinle\ASP.NET-Character-Creator\Lab5\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildTransitive.Lab5.props
